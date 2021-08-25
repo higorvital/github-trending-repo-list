@@ -12,11 +12,11 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  console.log(GITHUB_TOKEN)
+  // console.log(GITHUB_TOKEN)
     return {
       headers: {
         ...headers,
-        authorization: `Bearer ${GITHUB_TOKEN}` ,
+        authorization: GITHUB_TOKEN ? `Bearer ${GITHUB_TOKEN}`: `` ,
       }
     }
   });
