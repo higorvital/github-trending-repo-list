@@ -8,9 +8,9 @@ import RepositoryListTemplate from '../../components/RepositoryListTemplate';
 
 const Trending: React.FC = () => {
 
-    const [stars, setStars] = useState(100);
-    const [forks, setForks] = useState(50);
-    const [first, setFirst] = useState(10);
+    const [stars, ] = useState(100);
+    const [forks, ] = useState(50);
+    const [first, ] = useState(10);
     const [loadingMore, setLoadingMore] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
     const [queryResponse, setQueryReponse] = useState<IQueryRepositoriesResponse>()
@@ -19,16 +19,16 @@ const Trending: React.FC = () => {
         GET_TRENDING_REPOSITORIES,
         {
             variables: {
-                stars,
-                forks,
-                first,
+                stars: 100,
+                forks: 50,
+                first: 10,
             }
         }
     );
 
     useEffect(()=>{
         setQueryReponse(data);
-    },[loading])
+    },[loading, data])
 
     const endReach = useMemo(()=>{
 

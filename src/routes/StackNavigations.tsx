@@ -34,7 +34,7 @@ export const FavoritesStackNavigation: React.FC = () => {
             headerTitleAlign: 'center',
             headerTitle: ()=> <Image style={{width: 50, height: 50 /*, marginTop: 10, marginBottom: 10*/}} source={logo} /> ,
             headerStyle: {
-                backgroundColor: '#000'
+                backgroundColor: '#fff'
             }
         }}
       >
