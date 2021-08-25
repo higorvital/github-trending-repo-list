@@ -12,7 +12,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-
+  console.log(GITHUB_TOKEN)
     return {
       headers: {
         ...headers,
