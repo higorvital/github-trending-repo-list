@@ -5,38 +5,25 @@ import {
 } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 
+import {GITHUB_TOKEN} from '@env';
+
 const httpLink = createHttpLink({
     uri: 'https://api.github.com/graphql',
-  });
+});
 
 const authLink = setContext((_, { headers }) => {
 
     return {
       headers: {
         ...headers,
-        authorization: `Bearer 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` ,
+        authorization: `Bearer ${GITHUB_TOKEN}` ,
       }
     }
   });
 
 const apolloClient = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache(
-      // {
-      //   typePolicies: {
-      //     Query: {
-      //       fields: {
-      //         feed: {
-      //           keyArgs: false,
-      //           merge(existing = [], incoming) {
-      //             return [...existing, ...incoming];
-      //           },
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
-    )
+    cache: new InMemoryCache()
 });
 
 export default apolloClient;
